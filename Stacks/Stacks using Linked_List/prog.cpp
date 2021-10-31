@@ -7,53 +7,77 @@ class Node
     int data;
     Node* next;
 };
-void push(Node *&first,Node*&last,int x);
-void display(Node *&first);
-int pop(Node *&first);
+void push(int x, Node *&top);
+int pop(Node *&top);
+int peek(int pos);
+void display(Node *&top);
 int main(void)
 {
-    Node *first=NULL,*last=NULL;
-    push(first,last,20);
-    display(first);
-}
+    Node *top=NULL;
+    push(10,top);
+    push(20,top);
+    push(30,top);
+    push(40,top);
+    push(50,top);
+    display(top);
+    cout<<"result after popping->"<<pop(top)<<endl;
+    display(top);
 
-void push(Node *&first,Node*&last,int x)
+}
+void push(int x, Node *&top)
 {
-    Node *temp=new Node();
-    if(temp==NULL)
+    Node *t=new Node();
+    if(t==NULL)
     {
-        cout<<"Stack is full"<<endl;
+        cout<<"Stack Overflow"<<endl;
     }
     else
     {
-        temp->data=x;
-        temp->next=first;
-        first=temp;
+        t->data=x;
+        t->next=top;
+        top=t;
     }
 }
-void display(Node *&first)
+int pop(Node *&top)
 {
-    Node *p=first;
-    while(p!=NULL)
-    {
-        cout<<p->data<<endl;
-        p=p->next;
-    }
-}
-int pop(Node *&first)
-{
-    Node *t;
     int x=-1;
-    if(first==NULL)
+    Node *p=new Node();
+    if(top==NULL)
     {
-        cout<<"stack is empty"<<endl;
+        cout<<"Stack is empty"<<endl;
     }
     else
     {
-        t=first;
-        first=first->next;
-        x=t->data;
-        delete t;
+        p=top;
+        top=top->next;
+        x=p->data;
+        delete(p);
     }
     return x;
+}
+
+int peek(int pos,Node *&top)
+{
+    int x=-1;
+    Node *p=top;
+    for(int i=0;p!=NULL && i<pos-1;i++)
+    {
+        p=p->next;
+    }
+    if(p!=NULL)
+    {
+        x=p->data;
+        return x;
+    }
+    return x;
+}
+void display(Node *&top)
+{
+    Node *p=top;
+    while(p!=NULL)
+    {
+        cout<<p->data<<" ";
+        p=p->next;
+    }
+    cout<<endl;
 }
