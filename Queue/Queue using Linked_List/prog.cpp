@@ -7,13 +7,21 @@ class Node
     int data;
     Node *next;
 };
-void enqueue(int x);
+void enqueue(int x,Node *&first, Node *&last);
 int dequeue(Node *&first,Node *&last);
 void display(Node *first);
 int main(void)
 {
     Node *first=NULL,*last=NULL;
-
+    enqueue(10,first,last);
+    enqueue(20,first,last);
+    enqueue(30,first,last);
+    enqueue(40,first,last);
+    enqueue(50,first,last);
+    enqueue(60,first,last);
+    display(first);
+    cout<<"Result after dequeing->"<<dequeue(first,last)<<endl;
+    display(first);
 }
 void enqueue(int x,Node *&first, Node *&last)
 {
@@ -53,6 +61,7 @@ int dequeue(Node *&first,Node *&last)
         first=first->next;
         delete(t);
     }
+    return x;
 }
 void display(Node *first)
 {
