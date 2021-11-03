@@ -14,6 +14,7 @@ int min_rot(vector<int>arr)
         }
         else
         {
+            ans=mid;
             start=mid+1;
         }
     }
