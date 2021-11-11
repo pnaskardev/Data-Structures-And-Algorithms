@@ -1,0 +1,38 @@
+Root--> The parent of the whole tree
+
+Edges are the connection from the parent to the children 
+if there are N ROOTS there are N-1 EDGES
+
+Tree is a collection of Nodes 
+
+One of them is the Root Node 
+
+The top one in the Tree is a th Root 
+
+Siblings are the children of the same parent or I should say
+the elements which generate from the same parent are called Siblings 
+
+Descendents are all the children which are reachable from the 
+Node are called Descendants 
+
+Ancestors are the all the parents which are reachable 
+from a child 
+
+Degree of a Node is the number of Children a Node has 
+
+One Important QUESTION IS THAT WHAT IS THE DEGREE OF A TREE
+DEGREE OF A TREE IS A MINIMUM OF 3 OR ABOVE 
+
+Terminal Nodes or Leaf Nodes-->
+Nodes which have a degree 0 or a Node which has no children are called
+a Terminal Node or Leaf Node 
+
+External Nodes/ Non-Leaf Nodes/Non-Terminal Nodes-->
+Extrenal Nodes/ Non-leaf Nodes are those nodes which have children and a degree which is more than 0
+
+levels of Tree->>
+how many generations a Tree has IT STARTS FROM 0
+
+Height of a TREE-->
+in height we count the edges so it starts from 1 cause the ROOT DOESNT HAVE AN EDGES
+

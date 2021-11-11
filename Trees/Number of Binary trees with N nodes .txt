@@ -1,0 +1,20 @@
+for example 
+N==3
+
+there are two types of trees 
+1.Labelled
+2.Unlabelled 
+
+<---------Unlabelled------------>
+if n==3
+BT(3)=5
+BT(4)=14
+BT(n)=2nCn/n+1
+this formula is called the catalan numbler formula 
+
+max height for any Given number of Nodes 
+max.height=2^n-1
+
+<---------------Labelled-------->
+
+
