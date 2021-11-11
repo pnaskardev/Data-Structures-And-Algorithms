@@ -16,5 +16,12 @@ max height for any Given number of Nodes
 max.height=2^n-1
 
 <---------------Labelled-------->
+BT(n)=(2nCn/n+1)*n!
+
+<------------height vs Nodes--------->
+where height is given->
+min Nodes(n)=height+1
+max Nodes (n)=(2^h+1)-1
+
 
 
