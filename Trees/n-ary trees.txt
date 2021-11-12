@@ -1,0 +1,5 @@
+m-ary tree
+capacity of each node can be 0...m
+
+if m>2
+every binary tree can be a m-ary tree but an m-ary tree canoot be a binary tree

@@ -19,9 +19,16 @@ max.height=2^n-1
 BT(n)=(2nCn/n+1)*n!
 
 <------------height vs Nodes--------->
-where height is given->
+where height is given->h
 min Nodes(n)=height+1
-max Nodes (n)=(2^h+1)-1
+max Nodes (n)=(2^(h+1))-1
+
+where number of Nodes is given->N
+we wanna determine the height of the tree
+max.height=n-1
+min.height--> h=log2(n+1)-1
+
+number of degree 0 nodes=number of nodes with deg(2)+1
 
 
 
