@@ -13,3 +13,6 @@ max Nodes=-> m^(h+1)-1/(m-1)
 IF n Nodes are given
 max Nodes=h=(n-1)/m
 min.Nodes=logm[n(m-1)+1]-1
+
+<---------External Nodes vs Internal Nodes----------->
+e=(m-1)i+1
