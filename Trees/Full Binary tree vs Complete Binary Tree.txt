@@ -1,0 +1,15 @@
+<--------------FULL BINARY TREE-------------->
+A Binary tree of height h having maximumu number of Nodes 
+is called FULL BINARY tree
+
+
+<---------------COMPLETE BINARY TREE-------------->
+If a Binary tree is represented in an array then thhere should 
+not be any blank spaces each and every element should be CONTINOUS 
+
+
+
+<-------IMPORTANT POINTS------------>
+->A COMPLETE Binary tree is a FULL BINARY TREE till height h-1
+
+->d
