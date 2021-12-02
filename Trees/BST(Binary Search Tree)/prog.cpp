@@ -44,6 +44,32 @@ int main(void)
             cin>>t;
             root=iterative_insert(root,t);
         }
+        if(x==3)
+        {
+            int t;
+            cout<<"Enter the value you want to insert:";
+            cin>>t;
+            Node *temp=search(root,t);
+            if(temp!=NULL)
+            {
+                cout<<"The value we were seaeching for is found and the value is"<<temp->data<<endl;
+            }
+            else
+            {
+                cout<<"The value is not found"<<endl;
+                int p;
+                cout<<"If you would like to insert the val into the BST press 1 else press -1:"<<endl;
+                cin>>p;
+                if(p==1)
+                {
+                    recursive_insert(root,t);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
     } while (x!=-1);
     
     cout<<"inorder->";
@@ -70,7 +96,7 @@ Node *recursive_insert(Node *root,int val)
         root->left=recursive_insert(root->left,val);
         root->left->parent=root;
     }
-    else
+    else if(val>root->data)
     {
         root->right=recursive_insert(root->right,val);
         root->right->parent=root;
