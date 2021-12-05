@@ -8,12 +8,6 @@ class Node
     Node *right;
     Node *parent; 
     int data;
-    // Node(int val)
-    // {
-    //     data=val;
-    //     left=NULL;
-    //     right=NULL;
-    // }
 };
 Node *recursive_insert(Node *root,int val);
 Node *iterative_insert(Node *root,int val);
@@ -29,6 +23,7 @@ int main(void)
         cout<<"Press 1 to insert into the binary tree"<<endl;
         cout<<"Press 2 to insert iteratively into the binary tree"<<endl;
         cout<<"Press 3 to search into the binary tree"<<endl;
+        cout<<"Press 4 to search from the binary tree"<<endl;
         cin>>x;
         if(x==1)
         {
@@ -130,7 +125,7 @@ Node *iterative_insert(Node *root,int val)
         }
         else
         {
-            return t;
+            return root;
         }
     }
     p=new Node();
