@@ -12,12 +12,24 @@ class Node
 Node *recursive_insert(Node *root,int val);
 Node *iterative_insert(Node *root,int val);
 Node *search(Node *root,int val);
+Node* deleteNode(Node* root, int key);
 void inorder(Node *root);
 void preorder(Node *root);
 int main(void)
 {
     int x;
     Node *root=NULL;
+    root = recursive_insert(root, 50);
+    root = recursive_insert(root, 30);
+    root = recursive_insert(root, 20);
+    root = recursive_insert(root, 40);
+    root = recursive_insert(root, 70);
+    root = recursive_insert(root, 60);
+    root = recursive_insert(root, 80);
+    cout<<"inorder->";
+    inorder(root);
+    cout<<endl;
+    // root=deleteNode(root,20);
     do
     {
         cout<<"Press 1 to insert into the binary tree"<<endl;
@@ -47,7 +59,7 @@ int main(void)
             Node *temp=search(root,t);
             if(temp!=NULL)
             {
-                cout<<"The value we were seaeching for is found and the value is"<<temp->data<<endl;
+                cout<<"The value we were searching for is found and the value is"<<temp->data<<endl;
             }
             else
             {
@@ -65,6 +77,13 @@ int main(void)
                 }
             }
         }
+        if(x==4)
+        {
+            int t;
+            cout<<"enter the value you want to delete:";
+            cin>>t;
+            root=deleteNode(root,t);
+        }
     } while (x!=-1);
     
     cout<<"inorder->";
@@ -74,7 +93,52 @@ int main(void)
     preorder(root);
     cout<<endl;
 }
-
+Node* minValueNode(Node* node)
+{
+    Node* current = node;
+    while (current && current->left != NULL)
+        current = current->left;
+ 
+    return current;
+}
+Node* deleteNode(Node* root, int key)
+{
+    if (root == NULL)
+    {
+        return root;
+    }
+    if (key < root->data)
+    {
+        root->left = deleteNode(root->left, key);
+    }
+    else if (key > root->data)
+    {
+         root->right = deleteNode(root->right, key);
+    }
+    else 
+    {
+        if (root->left==NULL and root->right==NULL)
+        {
+            return NULL;
+        }
+        else if (root->left == NULL) 
+        {
+            Node* temp = root->right;
+            delete(root);
+            return temp;
+        }
+        else if (root->right == NULL) 
+        {
+            Node* temp = root->left;
+            free(root);
+            return temp;
+        }
+        Node* temp = minValueNode(root->right);
+        root->data = temp->data;
+        root->right = deleteNode(root->right, temp->data);
+    }
+    return root;
+}
 Node *recursive_insert(Node *root,int val)
 {
 
