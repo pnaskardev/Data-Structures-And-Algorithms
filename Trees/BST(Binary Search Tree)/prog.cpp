@@ -15,84 +15,88 @@ Node *search(Node *root,int val);
 Node* deleteNode(Node* root, int key);
 void inorder(Node *root);
 void preorder(Node *root);
+void postorder(Node *root);
 int main(void)
 {
     int x;
     Node *root=NULL;
-    // root = recursive_insert(root, 50);
-    // root = recursive_insert(root, 30);
-    // root = recursive_insert(root, 20);
-    // root = recursive_insert(root, 40);
-    // root = recursive_insert(root, 70);
-    // root = recursive_insert(root, 60);
-    // root = recursive_insert(root, 80);
-    // cout<<"inorder->";
-    // inorder(root);
-    // cout<<endl;
-    // // root=deleteNode(root,20);
-    do
-    {
-        cout<<"Press 1 to insert into the binary tree:-"<<endl;
-        cout<<"Press 2 to insert iteratively into the binary tree:-"<<endl;
-        cout<<"Press 3 to search into the binary tree:-"<<endl;
-        cout<<"Press 4 to delete from the binary tree:-"<<endl;
-        cout<<"Press -1 to stop"<<endl;
-        cin>>x;
-        if(x==1)
-        {
-            int t;
-            cout<<"Enter the value:";
-            cin>>t;
-            root=recursive_insert(root,t);
-        }
-        if(x==2)
-        {
-            int t;
-            cout<<"Enter the value:";
-            cin>>t;
-            root=iterative_insert(root,t);
-        }
-        if(x==3)
-        {
-            int t;
-            cout<<"Enter the value you want to insert:";
-            cin>>t;
-            Node *temp=search(root,t);
-            if(temp!=NULL)
-            {
-                cout<<"The value we were searching for is found and the value is"<<temp->data<<endl;
-            }
-            else
-            {
-                cout<<"The value is not found"<<endl;
-                int p;
-                cout<<"If you would like to insert the val into the BST press 1 else press any numeric key:"<<endl;
-                cin>>p;
-                if(p==1)
-                {
-                    recursive_insert(root,t);
-                }
-                else
-                {
-                    continue;
-                }
-            }
-        }
-        if(x==4)
-        {
-            int t;
-            cout<<"enter the value you want to delete:";
-            cin>>t;
-            root=deleteNode(root,t);
-        }
-    } while (x!=-1);
+    root = recursive_insert(root, 50);
+    root = recursive_insert(root, 30);
+    root = recursive_insert(root, 20);
+    root = recursive_insert(root, 40);
+    root = recursive_insert(root, 70);
+    root = recursive_insert(root, 60);
+    root = recursive_insert(root, 80);
+    cout<<"inorder->";
+    inorder(root);
+    cout<<endl;
+    // root=deleteNode(root,20);
+    // do
+    // {
+    //     cout<<"Press 1 to insert into the binary tree:-"<<endl;
+    //     cout<<"Press 2 to insert iteratively into the binary tree:-"<<endl;
+    //     cout<<"Press 3 to search into the binary tree:-"<<endl;
+    //     cout<<"Press 4 to delete from the binary tree:-"<<endl;
+    //     cout<<"Press -1 to stop"<<endl;
+    //     cin>>x;
+    //     if(x==1)
+    //     {
+    //         int t;
+    //         cout<<"Enter the value:";
+    //         cin>>t;
+    //         root=recursive_insert(root,t);
+    //     }
+    //     if(x==2)
+    //     {
+    //         int t;
+    //         cout<<"Enter the value:";
+    //         cin>>t;
+    //         root=iterative_insert(root,t);
+    //     }
+    //     if(x==3)
+    //     {
+    //         int t;
+    //         cout<<"Enter the value you want to insert:";
+    //         cin>>t;
+    //         Node *temp=search(root,t);
+    //         if(temp!=NULL)
+    //         {
+    //             cout<<"The value we were searching for is found and the value is"<<temp->data<<endl;
+    //         }
+    //         else
+    //         {
+    //             cout<<"The value is not found"<<endl;
+    //             int p;
+    //             cout<<"If you would like to insert the val into the BST press 1 else press any numeric key:"<<endl;
+    //             cin>>p;
+    //             if(p==1)
+    //             {
+    //                 recursive_insert(root,t);
+    //             }
+    //             else
+    //             {
+    //                 continue;
+    //             }
+    //         }
+    //     }
+    //     if(x==4)
+    //     {
+    //         int t;
+    //         cout<<"enter the value you want to delete:";
+    //         cin>>t;
+    //         root=deleteNode(root,t);
+    //     }
+    // } while (x!=-1);
     
-    // cout<<"inorder->";
-    // inorder(root);
-    // cout<<endl;
-    // cout<<"preorder->";
-    // preorder(root);
-    // cout<<endl;
+    cout<<"inorder->";
+    inorder(root);
+    cout<<endl;
+    cout<<"preorder->";
+    preorder(root);
+    cout<<endl;
+    cout<<"postorder->";
+    postorder(root);
+    cout<<endl;
 }
 Node* minValueNode(Node* node)
 {
@@ -229,24 +233,35 @@ Node *search(Node *root,int val)
 
 
 
-// void inorder(Node *root)
-// {
-//     if(root==NULL)
-//     {
-//         return;
-//     }
-//     inorder(root->left);
-//     cout<<root->data<<" ";
-//     inorder(root->right);
-// }
+void inorder(Node *root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
 
-// void preorder(Node *root)
-// {
-//     if(root==NULL)
-//     {
-//         return;
-//     }
-//     cout<<root->data<<" ";
-//     preorder(root->left);
-//     preorder(root->right);
-// }
+void preorder(Node *root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(Node *root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    preorder(root->left);
+    preorder(root->right);
+    cout<<root->data<<" ";
+}
