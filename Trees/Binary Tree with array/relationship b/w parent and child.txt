@@ -1,5 +1,0 @@
-if any element is stored at index i then 
-left child is at 2*i
-right chiled is at 2*i+1
-parent will be present at floor(i/2)
-
