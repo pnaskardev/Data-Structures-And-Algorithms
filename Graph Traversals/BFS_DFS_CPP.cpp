@@ -1,7 +1,32 @@
 #include <iostream>
 #include<bits/stdc++.h>
 using namespace std;
+
+void dfs(int u, int A[][8], int n)
+{
+    int visited[8] {0};
+    stack<int> stk;
+    stk.emplace(u);
+    while (!stk.empty())
+    {
+        u = stk.top();
+        stk.pop();
  
+        if (visited[u] != 1)
+        {
+            cout << u << ", " << flush;
+            visited[u] = 1;
+            for (int v=n-1; v>=0; v--)
+            {
+                if (A[u][v] == 1 && visited[v] == 0)
+                {
+                    stk.emplace(v);
+                }
+            }
+        }
+    }
+}
+
 void BFS(int vtx, int A[][8], int n)
 {
     queue<int> Q;

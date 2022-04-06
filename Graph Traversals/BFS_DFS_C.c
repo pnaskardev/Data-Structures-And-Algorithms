@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+
+// defining the queue because C doesnt has any inbuilt FIFO funtion 
 struct Node
 {
     int data;
@@ -32,7 +34,7 @@ int dequeue()
     struct Node* t;
 
     if(front==NULL)
-    printf("Queue is Empty\n");
+        printf("Queue is Empty\n");
     else
     {
         x=front->data;
@@ -47,8 +49,7 @@ int isEmpty()
     return front==NULL;
 }
 
-
-
+//START OF THE FUNTION OF BFS AND DFS  
 
 void BFS(int G[][7],int start,int n)
 {
@@ -105,6 +106,12 @@ int main()
                     {0,0,0,0,1,0,0}
                 };
 
+    printf("DFS->");
     DFS(G,4,7);
+    printf("\n");
+    
+    printf("BFS->");
+    BFS(G,4,7);
+    printf("\n");
     return 0;
 }
