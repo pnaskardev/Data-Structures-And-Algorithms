@@ -23,6 +23,7 @@ class BST
         { 
             return root; 
         }
+        // void dfs();
         void iterative_insert(int key);
         Node* recursive_iterative_insert(Node* p,int key);
         void Inorder(Node* p);
@@ -30,6 +31,19 @@ class BST
         void Postorder(Node* p);
         Node* Search(int key);
 };
+
+// void BST::dfs()
+// {
+//     Node *p=root;
+//     if(root==nullptr)
+//     {
+//         cout<<"Root is NULL and tree doesn exist"<<flush;
+//     }
+//     else
+//     {
+//         cout<<
+//     }
+// }
 
 Node* BST::recursive_iterative_insert(Node *p, int key) 
 {
@@ -145,7 +159,7 @@ void::BST::Postorder(Node *p)
     Postorder(p->rchild);
     cout<<p->data<<", "<<flush;
 }
- 
+
 Node* BST::Search(int key) 
 {
     Node* t = root;
@@ -174,25 +188,27 @@ int main()
     BST bst;
  
     // iterative_insert
-    bst.iterative_insert(10);
-    bst.iterative_insert(5);
-    bst.iterative_insert(20);
-    bst.iterative_insert(8);
-    bst.iterative_insert(30);
+    // bst.iterative_insert(10);
+    // bst.iterative_insert(5);
+    // bst.iterative_insert(20);
+    // bst.iterative_insert(8);
+    // bst.iterative_insert(30);
 
     // recursive insert
-    bst.recursive_iterative_insert(bst.getRoot(),50);
-    bst.recursive_iterative_insert(bst.getRoot(),70);
-    bst.recursive_iterative_insert(bst.getRoot(),1);
+    bst.recursive_iterative_insert(bst.getRoot(),10);
+    bst.recursive_iterative_insert(bst.getRoot(),5);
+    bst.recursive_iterative_insert(bst.getRoot(),20);
+    bst.recursive_iterative_insert(bst.getRoot(),8);
+    bst.recursive_iterative_insert(bst.getRoot(),30);
+    
 
     if(bst.getRoot()==NULL)
     {
         cout<<"root is null"<<endl;
     }
-    // Inorder traversal
     if(bst.getRoot()!=NULL)
     {
-        // Inorder
+        cout<<"Inorder->";
         bst.Inorder(bst.getRoot());
         cout << endl;
 
@@ -208,17 +224,22 @@ int main()
 
 
         // Search
-        Node* temp = bst.Search(10);
-        if (temp != nullptr)
-        {
-            cout << temp->data << endl;
-        } 
-        else 
-        {
-            cout << "Element not found" << endl;
-        }
- 
+        // Node* temp = bst.Search(10);
+        // if (temp != nullptr)
+        // {
+        //     cout << temp->data << endl;
+        // } 
+        // else 
+        // {
+        //     cout << "Element not found" << endl;
+        // }
+
     }
+
+    // perfoming dfs on trees represented as adjacency list
+
+
+
 
     return 0;
 }
