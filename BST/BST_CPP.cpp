@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include<bits/stdc++.h>
 using namespace std;
  
 class Node
@@ -28,6 +28,7 @@ class BST
         void Inorder(Node* p);
         void Preorder(Node* p);
         void Postorder(Node* p);
+        vector<vector<int>>levelorder(Node *p);
         Node* Search(int key);
 };
 
@@ -145,7 +146,40 @@ void::BST::Postorder(Node *p)
     Postorder(p->rchild);
     cout<<p->data<<", "<<flush;
 }
- 
+
+
+vector<vector<int>>BST::levelorder(Node *p)
+{
+    vector<vector<int>>ans;
+    if(p==NULL)
+    {
+        return ans;
+    }
+    queue<Node*>q;
+    q.push(p);
+    while(!q.empty())
+    {
+        vector<int>level;
+        int n=q.size();
+        for(int i=0;i<n;i++)
+        {
+            Node* t=q.front();
+            q.pop();
+            if(t->lchild!=NULL)
+            {
+                q.push(t->lchild);
+            }
+            if(t->rchild!=NULL)
+            {
+                q.push(t->rchild);
+            }
+            level.push_back(t->data);
+        }
+        ans.push_back(level);
+    }
+    return ans;
+}
+
 Node* BST::Search(int key) 
 {
     Node* t = root;
@@ -174,16 +208,18 @@ int main()
     BST bst;
  
     // iterative_insert
-    bst.iterative_insert(10);
-    bst.iterative_insert(5);
-    bst.iterative_insert(20);
-    bst.iterative_insert(8);
-    bst.iterative_insert(30);
+    // bst.iterative_insert(10);
+    // bst.iterative_insert(5);
+    // bst.iterative_insert(20);
+    // bst.iterative_insert(8);
+    // bst.iterative_insert(30);
 
     // recursive insert
     bst.recursive_iterative_insert(bst.getRoot(),50);
     bst.recursive_iterative_insert(bst.getRoot(),70);
     bst.recursive_iterative_insert(bst.getRoot(),1);
+    bst.recursive_iterative_insert(bst.getRoot(),30);
+    bst.recursive_iterative_insert(bst.getRoot(),35);
 
     if(bst.getRoot()==NULL)
     {
@@ -207,17 +243,33 @@ int main()
         cout<<endl;
 
 
-        // Search
-        Node* temp = bst.Search(10);
-        if (temp != nullptr)
+
+        // LEVELORDER TRAVERSAL
+        cout<<"Levelorder traversal->"<<endl;
+        auto res=bst.levelorder(bst.getRoot());
+        for(int i=0;i<res.size();i++)
         {
-            cout << temp->data << endl;
-        } 
-        else 
-        {
-            cout << "Element not found" << endl;
+            for(int j=0;j<res[i].size();j++)
+            {
+                cout<<res[i][j]<<" ";
+            }
+            cout<<endl;
         }
- 
+
+
+
+
+        // Search
+        // Node* temp = bst.Search(10);
+        // if (temp != nullptr)
+        // {
+        //     cout << temp->data << endl;
+        // } 
+        // else 
+        // {
+        //     cout << "Element not found" << endl;
+        // }
+
     }
 
     return 0;
